@@ -19,6 +19,12 @@ function App() {
     tela1.classList.toggle("hidden");
     tela2.classList.toggle("hidden");
   }
+  function removerItem(itemRemover) {
+    const itemRemovido = listTransactions.filter(
+      (lista) => lista !== itemRemover
+    );
+    setListTransactions(itemRemovido);
+  }
 
   return (
     <div className="App">
@@ -40,7 +46,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div>
+          <div className="box__3pai">
             <div className="box__3">
               <div className="potinhos">
                 <div className="c1"></div>
@@ -123,9 +129,15 @@ function App() {
               </div>
             </div>
             {filterTransactions.length > 0 ? (
-              <Lista listTransactions={filterTransactions} />
+              <Lista
+                listTransactions={filterTransactions}
+                removerItem={removerItem}
+              />
             ) : (
-              <Lista listTransactions={listTransactions} />
+              <Lista
+                listTransactions={listTransactions}
+                removerItem={removerItem}
+              />
             )}
           </div>
         </section>

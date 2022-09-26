@@ -1,6 +1,6 @@
 import "./style.css";
 
-export const Lista = ({ listTransactions }) => {
+export const Lista = ({ listTransactions, removerItem }) => {
   return (
     <ul className="lista__pai">
       {listTransactions.map((card, index) => (
@@ -9,7 +9,7 @@ export const Lista = ({ listTransactions }) => {
             <p>{card.descricao}</p>
             <div>
               <p>R${card.valor}</p>
-              <button>X</button>
+              <button onClick={() => removerItem(card)}>X</button>
             </div>
           </div>
           <div className="div__span">
